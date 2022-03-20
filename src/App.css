@@ -1,7 +1,8 @@
 .App {
   display: grid;
   place-content: center;
-  /* border: 10px solid black; */
-  height: 92vh;
-  /* padding: 20px; */
+  height: 97vh;
+}
+.board-and-row{
+  display: flex;
 }

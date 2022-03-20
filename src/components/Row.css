@@ -1,0 +1,8 @@
+.rows{
+    text-transform: capitalize;
+    display: flex;
+    flex-direction: column-reverse;
+    justify-content: space-around;
+    margin-right: 10px;
+    font-weight: 600;
+}
