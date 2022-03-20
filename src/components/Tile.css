@@ -1,0 +1,16 @@
+.tile{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 80px;
+    height: 80px;
+}
+.tileW{
+    background-color: #E5D19F
+}
+.tileB{
+    background-color: #5C4849;
+}
+img{
+    height: 70px;
+}
