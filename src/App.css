@@ -1,8 +1,7 @@
 .App {
-  text-align: center;
-}
-.board{
-  height: 100px;
-  width: 100px;
-  background-color: black;
+  display: grid;
+  place-content: center;
+  /* border: 10px solid black; */
+  height: 92vh;
+  /* padding: 20px; */
 }
