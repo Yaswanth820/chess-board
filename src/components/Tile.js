@@ -8,10 +8,10 @@ const Tile = ({ row, column }) => {
     path += image;
     console.log(path);
     return(
-    (row%2) === 0? (    (column%2) === 0?  <div className='tile tileW'> <img src={path} alt="" /> </div> 
-                                  :  <div className='tile tileB'> <img src={path} alt="" /> </div>  )
-                    :(  (column%2) === 0?  <div className='tile tileB'> <img src={path} alt="" /> </div> 
-                                  : <div className='tile tileW'> <img src={path} alt="" /> </div>  )
+    (row%2) === 0? (    (column%2) === 0?  <div className='tile tileW' style={{backgroundImage: `url(${path})`}}></div> 
+                                  :  <div className='tile tileB' style={{backgroundImage: `url(${path})`}}></div>  )
+                    :(  (column%2) === 0?  <div className='tile tileB' style={{backgroundImage: `url(${path})`}}></div> 
+                                  : <div className='tile tileW' style={{backgroundImage: `url(${path})`}}></div>  )
     )
 }
 

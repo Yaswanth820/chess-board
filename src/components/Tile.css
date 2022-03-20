@@ -4,13 +4,13 @@
     align-items: center;
     width: 80px;
     height: 80px;
+    background-repeat: no-repeat;
+    background-size: 80px;
+    background-position: center;
 }
 .tileW{
-    background-color: #E5D19F
+    background-color: #E5D19F;
 }
 .tileB{
     background-color: #5C4849;
-}
-img{
-    height: 70px;
 }
