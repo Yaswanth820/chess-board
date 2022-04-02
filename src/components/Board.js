@@ -3,30 +3,47 @@ import Tile from './Tile';
 import { useState } from 'react';
 
 const Board = () => {
-  // const xAxis = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h'];
 
   const initialBoardState = [];
   const boardState = [];
-  // const [chessPieceName, setChessPieceName] = useState('hey');
-  const onSetChessPiece = (piece) => {
-    // console.log(`Image: ${piece}`);
-    return piece;
-    // console.log(chessPieceName);
-  }
-  const chessPieceName = onSetChessPiece;
-  for (let i = 7; i >= 0; i--) {
-    for (let j = 1; j <= 8; j++) {
-      initialBoardState.push(<Tile row={i} column={j} onSetChessPiece={onSetChessPiece} />);
-      boardState.push({ i, j, chessPieceName });
+  const [tboard, tboardSetState] = useState([]);
+  const pull_img = (i, j, pieceimg) => {
+    if(pieceimg != null){
+      const p = { i, j, pieceimg };
+      // console.log(p);
+      tboardSetState([...tboard, p]);
+      console.log(tboard);
     }
   }
+
+
+  // const chessPieceName = onSetChessPiece;
+  for (let i = 7; i >= 0; i--) {
+    for (let j = 1; j <= 8; j++) {
+      initialBoardState.push(<Tile row={i} column={j} imgg={pull_img} />);
+      // let nn = imgg.length;
+      // boardState.push({ i, j });
+    }
+  }
+
   const [board, setBoard] = useState(initialBoardState);
-  console.log(boardState);
+
+  if(counter%2){
+    // White
+    for (let i = 0; i < tboard.length; i++) {
+      
+    }
+  }else{
+    // Black
+
+  }
+  console.log(tboard);
   return (
     <div>
       <div className="board">{board}</div>
     </div>
   )
+  
 }
 
 export default Board;
