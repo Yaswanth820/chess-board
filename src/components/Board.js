@@ -11,7 +11,7 @@ const Board = () => {
     for (let j = 0; j <= 7; j++) {
       let path = '/assets/images';
       let image = '/no-piece';
-      (i === 0 && j === 0) && (image = '/black-rook.svg');
+      // (i === 0 && j === 0) && (image = '/black-rook.svg');
       (i === 6 && j === 0) && (image = '/white-rook.svg');
       // (i === 1 && j === 0) && (image = '/black-pawn.svg');
       (i === 6 && j === 3) && (image = '/black-pawn.svg');
@@ -19,7 +19,9 @@ const Board = () => {
       initialBoardState.push(<Tile row={i} column={j} image={path} />);
     }
   }
-
+  const emptyTile = (r, c) => {
+    return <Tile row={r} column={c} image={'/assets/images/no-piece'} />
+  }
   const [board, setBoard] = useState(initialBoardState);
 
   if(1){
@@ -61,7 +63,15 @@ const Board = () => {
       if(minDist != 1000){
         console.log(minDist);
         console.log(coordinates);
-        // setBoard();
+        setBoard(board.map((tile) => {
+          if(tile.props.row === board[i]['props']['row'] && tile.props.column === board[i]['props']['column'])  tile = emptyTile(tile.props.row, tile.props.column)
+          else if(tile.props.row === coordinates[0] && tile.props.column === coordinates[1]) tile = board[i]
+          return tile;
+        }));
+        console.log(board);
+        // board.map((tile) => {
+        //   console.log(tile.props);
+        // })
       }
     }
   }
