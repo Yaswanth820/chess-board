@@ -2,7 +2,6 @@ import './App.css';
 import Board from './components/Board';
 import Row from './components/Row.js';
 import Column from './components/Column.js';
-import PlayButton from './components/PlayButton';
 
 function App() {
   return (
@@ -12,7 +11,6 @@ function App() {
         <Board />
       </div>
       <Column />
-      <PlayButton />
     </div>
   );
 }
