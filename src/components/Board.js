@@ -11,20 +11,22 @@ const Board = () => {
     for (let j = 0; j <= 7; j++) {
       let path = '/assets/images';
       let image = '/no-piece';
-      // (i === 0 && j === 0) && (image = '/black-rook.svg');
+      (i === 0 && j === 0) && (image = '/black-rook.svg');
       (i === 6 && j === 0) && (image = '/white-rook.svg');
       // (i === 1 && j === 0) && (image = '/black-pawn.svg');
-      (i === 6 && j === 3) && (image = '/black-pawn.svg');
+      // (i === 6 && j === 3) && (image = '/black-pawn.svg');
       path += image;
       initialBoardState.push(<Tile row={i} column={j} image={path} />);
     }
   }
-  const emptyTile = (r, c) => {
-    return <Tile row={r} column={c} image={'/assets/images/no-piece'} />
+  const getTile = (r, c, imgPath) => {
+    // imgPath = '/assets/images/imgPath';
+    if(!imgPath) imgPath = '/assets/images/imgPath';
+    return <Tile row={r} column={c} image={imgPath} />
   }
   const [board, setBoard] = useState(initialBoardState);
 
-  if(1){
+  if(0){
     // White move
     let flag = false;
     for (let i = 0; i <= 63 && flag === false; i++) {
@@ -61,14 +63,14 @@ const Board = () => {
         }
       }
       if(minDist != 1000){
-        console.log(minDist);
-        console.log(coordinates);
+        // console.log(minDist);
+        // console.log(coordinates);
         setBoard(board.map((tile) => {
-          if(tile.props.row === board[i]['props']['row'] && tile.props.column === board[i]['props']['column'])  tile = emptyTile(tile.props.row, tile.props.column)
-          else if(tile.props.row === coordinates[0] && tile.props.column === coordinates[1]) tile = board[i]
+          if(tile.props.row === board[i]['props']['row'] && tile.props.column === board[i]['props']['column'])  tile = getTile(tile.props.row, tile.props.column)
+          else if(tile.props.row === coordinates[0] && tile.props.column === coordinates[1]) tile = getTile(coordinates[0], coordinates[1], board[i].props.image);
           return tile;
         }));
-        console.log(board);
+        // console.log(board);
         // board.map((tile) => {
         //   console.log(tile.props);
         // })
@@ -113,9 +115,13 @@ const Board = () => {
         }
       }
       if(minDist != 1000){
-        console.log(minDist);
-        console.log(coordinates);
-        // setBoard();
+        // console.log(minDist);
+        // console.log(coordinates);
+        setBoard(board.map((tile) => {
+          if(tile.props.row === board[i]['props']['row'] && tile.props.column === board[i]['props']['column'])  tile = getTile(tile.props.row, tile.props.column)
+          else if(tile.props.row === coordinates[0] && tile.props.column === coordinates[1]) tile = getTile(coordinates[0], coordinates[1], board[i].props.image);
+          return tile;
+        }));
       }
     }
   }

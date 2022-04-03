@@ -2,6 +2,7 @@
   display: grid;
   place-content: center;
   height: 97vh;
+  grid-gap: 10px;
 }
 .board-and-row{
   display: flex;
